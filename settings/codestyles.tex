@@ -1,0 +1,58 @@
+% ===========================================
+% = Codestyles for minted syntax highlighting
+% ===========================================
+
+% How to configure a language with minted:
+% Language
+%\newminted{language}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize, escapeinside=||}
+%\newmintedfile{language}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+%\usemintedstyle[language]{pastie} % optional (ref: https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted#Reference_guide)
+
+% How to use (replace 'java' with language name):
+% - code blocks:
+%     \begin{javacode}
+%     CODE
+%     \end{javacode}
+% - files:
+%     full: \javafile{PATH}
+%     extract: \javafile[startline=x, endline=y]{PATH}
+
+% Java
+\newminted{java}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+\newmintedfile{java}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+
+% C
+\newminted{c}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+\newmintedfile{c}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+
+% CPP
+\newminted{cpp}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+\newmintedfile{cpp}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+
+% Scala
+\newminted{scala}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+\newmintedfile{scala}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+
+% Clojure
+\newminted{clojure}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+\newmintedfile{clojure}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+
+% Python
+\newminted{python}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+\newmintedfile{python}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+
+% Sql
+\newminted{sql}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+\newmintedfile{sql}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+
+% Json
+\newminted{json}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+\newmintedfile{json}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+
+% Yaml
+\newminted{yaml}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+\newmintedfile{yaml}{frame=single, framesep=6pt, breaklines=true, fontsize=\scriptsize}
+
+% Plain text
+\newminted{text}{frame=single, framesep=6pt, breaklines=true, breakanywhere, fontsize=\scriptsize, escapeinside=||}
+\newmintedfile{text}{frame=single, framesep=6pt, breaklines=true, breakanywhere, fontsize=\scriptsize}

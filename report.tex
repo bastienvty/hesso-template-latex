@@ -1,0 +1,132 @@
+%    Copyright 2017 Marc Demierre, HES-SO//Master
+%
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+%
+% http://www.apache.org/licenses/LICENSE-2.0
+%
+% Unless required by applicable law or agreed to in writing, software
+% distributed under the License is distributed on an "AS IS" BASIS,
+% WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+% See the License for the specific language governing permissions and
+% limitations under the License.
+
+% =============================================================================
+% | HES-SO//Master - Thesis project report template                           |
+% |                                                                           |
+% | Originally based on the EPFL template, with many adjustements             |
+% | Source : https://github.com/mdemierre/hesso-latextemplate-thesis          |
+% =============================================================================
+
+% Document settings
+\documentclass[a4paper,11pt,fleqn]{book}
+%\documentclass[a4paper,11pt,fleqn,openany]{book} % To begin directly the chapter's page
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french,english]{babel}
+
+% -----------------------------------------------------------------------------
+% Preamble
+% -----------------------------------------------------------------------------
+\input{settings/metadata}         % your project data
+\input{settings/settings_base}    % template settings
+\input{settings/codestyles}       % code styles for minted
+\input{settings/settings_custom}  % your custom packages etc
+
+\begin{document}
+% -----------------------------------------------------------------------------
+% Front matter
+% -----------------------------------------------------------------------------
+\frontmatter
+
+\dominitoc
+
+\input{structure/1-head/ch1_titlepage}
+
+% Page for student info and signatures
+\cleardoublepage
+\input{structure/1-head/ch2_reportinfo}
+
+% Acknowledgments (your dedication etc)
+\cleardoublepage
+\input{structure/1-head/ch3_acknowledgments}
+
+% Preface (to be written by someone else)
+\cleardoublepage
+\input{structure/1-head/ch5_preface}
+
+% French + English abstracts
+\cleardoublepage
+\input{structure/1-head/ch6_abstracts}
+
+% Table of contents
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Contents}
+\tableofcontents
+
+% List of figures
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+% List of tables
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+% List of listings
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Listings}
+\listoflistings
+
+% Restore paragraphs
+\setlength{\parskip}{1em}
+
+% Bold fonts for sections in minitoc
+\renewcommand{\cftsecfont}{\sffamily\bfseries}
+\renewcommand{\cftsecleader}{\sffamily\bfseries\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecpagefont}{\sffamily\bfseries}
+
+
+% -----------------------------------------------------------------------------
+% Main matter
+% -----------------------------------------------------------------------------
+\mainmatter
+
+% Chapters
+\setcounter{mtc}{7} % Help minitoc skip the front matter chapters
+\include{structure/2-main/ch1_introduction}
+\include{structure/2-main/ch2_analysis}
+\include{structure/2-main/ch3_design}
+\include{structure/2-main/ch4_implementation}
+\include{structure/2-main/ch5_validation}
+\include{structure/2-main/ch6_conclusion}
+
+% Appendices
+\appendix
+\include{structure/3-tail/ch1_appendix}
+
+% -----------------------------------------------------------------------------
+% Back matter
+% -----------------------------------------------------------------------------
+\backmatter
+
+% Bibliography
+\cleardoublepage
+\printbibliography[title={References}, heading=bibintoc]
+
+% Glossary
+\cleardoublepage
+\printglossaries
+
+% TODO: Add index
+
+% Add your CV here if you want
+
+\end{document}
+
