@@ -12,7 +12,7 @@ This chapter shows example of picture and also serves to populate the different 
 
 \section{Tables}
 
-This section contains an examples of table: \autoref{tab:esempio}
+This section contains an examples of table: \autoref{tab:esempio} and 
 
 \begin{table}[H]
 	\centering
@@ -23,11 +23,32 @@ This section contains an examples of table: \autoref{tab:esempio}
 		mouse	& 10 g	& cheese \\
 		cat	& 1 kg	& mice \\
 		dog	& 10 kg	& cats \\
-		t-rex	& 10 Mg	& dogs \\
 		\bottomrule 
 	\end{tabular}
 	\caption[A floating table]{A floating table.}
 	\label{tab:esempio}
+\end{table}
+
+\chapter{Milestones}
+\label{chap:milestones}
+
+The project consists of several milestones along the way to lay the foundation for its progress.
+
+\begin{table}[H]
+    \centering
+    \rowcolors{1}{Lavender!80!gray}{white}
+	\begin{tabular}{|L{2.5cm}|L{2.5cm}|C{3cm}|}
+		\hline
+		\rowcolor{lightgray} \textbf{\large{Name}} & \textbf{\large{Weight}} & \textbf{\large{Food}} \\
+		\hline
+		mouse & 10g & cheese \\
+		\hline
+            cat & 1kg & mice \\
+		\hline
+            dog & 10kg & cats \\
+		\hline
+	\end{tabular}
+	\caption{A pretty table}
 \end{table}
 
 \section{Figures}
@@ -36,7 +57,7 @@ This section contains examples of figures: \autoref{fig:galleria}, \autoref{fig:
 
 \begin{figure}[H] 
 	\centering 
-	\includegraphics[width=0.5\columnwidth]{galleria_stampe.jpg} 
+	\includegraphics[width=0.3\columnwidth]{galleria_stampe.jpg} 
 	\captionsource{A floating figure}{A floating figure: the lithograph \emph{Galleria di stampe}, of M.~Escher}{\url{http://www.mcescher.com/}}
 	\label{fig:galleria} 
 \end{figure}
