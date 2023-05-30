@@ -5,6 +5,8 @@
 % General tools
 % -------------
 \usepackage{etoolbox}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 
 % Page style
 % ----------
@@ -232,6 +234,10 @@ bibencoding=auto
 	\href{mailto:#1}{\textit{#1}}%
 }
 
+% TODO NOTES
+% -----------
+\usepackage{todonotes}
+
 % References
 % -----------
 \usepackage{url}
@@ -265,7 +271,7 @@ bibencoding=auto
 
 % Glossary
 % --------
-\usepackage{glossaries}
+\usepackage[toc,section=chapter]{glossaries}
 \input{structure/3-tail/ch2_glossary}
 \makeglossaries
 
