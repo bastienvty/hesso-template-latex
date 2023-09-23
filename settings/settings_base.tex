@@ -166,6 +166,44 @@ bibencoding=auto
 \graphicspath{{structure/figures/}}
 \definecolor{gray80}{gray}{0.80}
 
+% Information and warning boxes
+\usepackage[framemethod=TikZ]{mdframed}
+\newenvironment{info}[1][]{%
+    \vspace{0.2cm}
+   \begin{mdframed}[%
+        backgroundcolor={blue!10}, hidealllines=true,
+        skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
+        splitbottomskip=2pt, splittopskip=10pt,
+        roundcorner=4pt,
+      #1]%
+   \makebox[0pt]{% ignore the withd of !
+      \smash{% ignor the height of !
+         \hspace*{-20pt}% move ! to the left
+         \raisebox{3pt}{% move ! up a little
+             \includegraphics[width=7mm]{img/info.png}
+         }%
+      }%
+   }%
+}{\end{mdframed}}
+
+\newenvironment{warning}[1][]{%
+    \vspace{0.2cm}
+   \begin{mdframed}[%
+        backgroundcolor={yellow!10}, hidealllines=true,
+        skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
+        splitbottomskip=2pt, splittopskip=10pt,
+        roundcorner=4pt,
+      #1]%
+   \makebox[0pt]{% ignore the withd of !
+      \smash{% ignor the height of !
+         \hspace*{-20pt}% move ! to the left
+         \raisebox{2pt}{% move ! up a little
+             \includegraphics[width=7mm]{img/warning.png}
+         }%
+      }%
+   }%
+}{\end{mdframed}}
+
 
 % Code and syntax highlighting
 % ----------------------------
