@@ -3,68 +3,55 @@
 % ==========================================================================
 
 \begin{titlepage}
-\newgeometry{margin=2.5cm}
-{\fontfamily{phv}\fontseries{mc}\selectfont
-	\begin{flushright}
-		\begin{minipage}{0.5\textwidth}
-			\begin{flushleft}
-				\includegraphics[width=0.9\textwidth]{img/mse_logo}
-			\end{flushleft}
-		\end{minipage}%
-		\begin{minipage}{0.5\textwidth}
-			\begin{flushright}
-				\includegraphics[width=0.6\textwidth]{img/hesso_logo}
-			\end{flushright}
-		\end{minipage}
-		\begin{flushleft}
-			\footnotesize
-			Master of Science HES-SO in Engineering \\
-			Av. de Provence 6 \\
-			CH-1007 Lausanne
-		\end{flushleft}
-		~\\[0.5cm]
-		
-		{
-		\Huge Master of Science HES-SO in Engineering\\[0.5cm]
-		}
-		
-		{
-		\LARGE Orientation: \Orientation\\[0.5cm]
-		~\\[1cm]
-		}
-		% Title
-		{
-			\Huge
-			\ThesisTitle \\
-			\huge
-			\ThesisSubject \\[1.5cm]
-		}
-		{
-			\large
-			Author:\\[-0.3cm]
-			\Huge \Author \\[0.8cm]
-		}
-		{
-			\large
-			Under the supervision of: \\
-			\Advisor \\
-			\AdvisorResearchUnit \\[0.5cm]
-		}
-		{
-			\large
-			External expert: \\
-			\Expert
-		}
-		\vfill
-		
-		% Bottom of the page
-            {\large Version \version}\\
-		{\large \Place, HES-SO//Master, \Date}
-		
-	\end{flushright}
-}
+\newgeometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+\begin{center}
+
+    % Logos - Centered at the top
+    \begin{minipage}{0.5\textwidth}
+        \raggedright
+        \includegraphics[height=0.6cm]{img/mse_logo}  % Adjust height for consistency
+    \end{minipage}%
+    \begin{minipage}{0.5\textwidth}
+        \raggedleft
+        \includegraphics[height=3cm]{img/HES_SO_Logo_RGB}  % Ensure both logos have the same height
+    \end{minipage}
+
+    \vspace{1cm}
+
+    % University and program information
+    {\large \textbf{Master of Science HES-SO in Engineering}}\\
+    {\large Orientation: \Orientation}\\[2cm]
+
+    % Title
+    {\Huge \textbf{\ThesisTitle}}\\[0.3cm]
+    {\LARGE \textit{\ThesisSubject}}\\[1cm]
+
+    % Author Section
+    \rule{\textwidth}{0.4mm} \\[0.5cm]
+    {\LARGE \textbf{Author}}\\
+    {\Large \Author} \\[2cm]
+
+    % Supervisor and Expert
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        {\large \textbf{Under the supervision of}}\\
+        {\large \Advisor}\\
+        {\large \SAdvisor}\\
+        {\small \AdvisorResearchUnit}\\
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        {\large \textbf{External Expert}}\\
+        {\large \Expert}\\
+    \end{minipage}
+    \\[1.5cm]
+
+    % Footer Section
+    \vfill
+    {\small Version \version} \\
+    {\small \Place, HES-SO//\Diploma, \Date}
+
+\end{center}
 \restoregeometry
 \end{titlepage}
-
-
-

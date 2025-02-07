@@ -49,42 +49,40 @@
 \cleardoublepage
 \input{structure/1-head/ch2_reportinfo}
 
-% Acknowledgments (your dedication etc)
-\cleardoublepage
-\input{structure/1-head/ch3_acknowledgments}
+% French + English abstracts
+\clearpage
+\input{structure/1-head/ch3_abstracts}
 
 % Dedication (maybe for another time...)
-\cleardoublepage
+\clearpage
 \input{structure/1-head/ch4_dedication}
 
-% Preface (to be written by someone else)
-\cleardoublepage
-\input{structure/1-head/ch5_preface}
+% Acknowledgments (your dedication etc)
+\clearpage
+\input{structure/1-head/ch5_acknowledgments}
 
-% French + English abstracts
-\cleardoublepage
-\input{structure/1-head/ch6_abstracts}
+% Preface (to be written by someone else)
+\clearpage
+\input{structure/1-head/ch6_preface}
 
 % Table of contents
-\cleardoublepage
+\clearpage
 \phantomsection
 \addcontentsline{toc}{chapter}{Contents}
 \tableofcontents
 
 % List of figures
-\cleardoublepage
+\clearpage
 \phantomsection
 \addcontentsline{toc}{chapter}{List of Figures}
 \listoffigures
 
 % List of tables
-\cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{List of Tables}
 \listoftables
 
 % List of listings
-\cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{List of Listings}
 \listoflistings
@@ -104,7 +102,7 @@
 \mainmatter
 
 % Chapters
-\setcounter{mtc}{8} % Help minitoc skip the front matter chapters
+\setcounter{mtc}{7} % Help minitoc skip the front matter chapters
 \include{structure/2-main/ch1_introduction}
 \include{structure/2-main/ch2_analysis}
 \include{structure/2-main/ch3_design}
@@ -113,8 +111,9 @@
 \include{structure/2-main/ch6_conclusion}
 
 % Appendices
+\include{structure/3-tail/ch1_history}
 \appendix
-\include{structure/3-tail/ch1_appendix}
+\include{structure/3-tail/ch2_appendix}
 
 % -----------------------------------------------------------------------------
 % Back matter
@@ -126,7 +125,7 @@
 \printbibliography[title={References}, heading=bibintoc]
 
 % Glossary
-\cleardoublepage
+\clearpage
 \printglossaries
 
 % TODO: Add index
@@ -134,4 +133,3 @@
 % Add your CV here if you want
 
 \end{document}
-
