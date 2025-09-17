@@ -1,4 +1,4 @@
-%    Copyright 2023 Bastien Veuthey, HES-SO//Bachelor
+%    Copyright 2025 Bastien Veuthey, HES-SO//MSE
 %
 % Licensed under the Apache License, Version 2.0 (the "License");
 % you may not use this file except in compliance with the License.
@@ -32,6 +32,7 @@
 % -----------------------------------------------------------------------------
 \input{settings/metadata}         % your project data
 \input{settings/settings_base}    % template settings
+\input{settings/fonts}            % font settings
 \input{settings/codestyles}       % code styles for minted
 \input{settings/settings_custom}  % your custom packages etc
 
@@ -103,17 +104,17 @@
 
 % Chapters
 \setcounter{mtc}{7} % Help minitoc skip the front matter chapters
-\include{structure/2-main/ch1_introduction}
-\include{structure/2-main/ch2_analysis}
-\include{structure/2-main/ch3_design}
-\include{structure/2-main/ch4_implementation}
-\include{structure/2-main/ch5_validation}
-\include{structure/2-main/ch6_conclusion}
+\input{structure/2-main/ch1_introduction}
+\input{structure/2-main/ch2_analysis}
+\input{structure/2-main/ch3_design}
+\input{structure/2-main/ch4_implementation}
+\input{structure/2-main/ch5_validation}
+\input{structure/2-main/ch6_conclusion}
 
 % Appendices
-\include{structure/3-tail/ch1_history}
+\input{structure/3-tail/ch1_history}
 \appendix
-\include{structure/3-tail/ch2_appendix}
+\input{structure/3-tail/ch2_appendix}
 
 % -----------------------------------------------------------------------------
 % Back matter

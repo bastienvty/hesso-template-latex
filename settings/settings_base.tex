@@ -67,12 +67,6 @@
 	\cleartoodd%
 }
 
-% Fonts
-% -----
-
-% Helvetica (Arial used in the MSE Word template)
-\usepackage{helvet}
-
 % Math
 % ----
 \usepackage{amsmath}  % better math
@@ -124,7 +118,7 @@
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}%
 
 % Set row height multiplicator to provide more breathing space
-\renewcommand{\arraystretch}{1.3} 
+\renewcommand{\arraystretch}{1.3}
 %\renewcommand\theadalign{bc}
 %\renewcommand\theadfont{\bfseries}
 %\renewcommand\theadgape{\Gape[4pt]}
@@ -161,7 +155,7 @@ bibencoding=auto
 \usepackage{minitoc}
 
 % no "Contents" title
-\mtcsettitle{minitoc}{Contents} 
+\mtcsettitle{minitoc}{Contents}
 
 % Layout
 \setlength{\mtcindent}{-0.5em}
@@ -312,9 +306,9 @@ bibencoding=auto
 	pdfsubject={\ThesisSubject},
 	pdfkeywords={\Keywords}
 	pdfduplex=DuplexFlipLongEdge]{hyperref}
-	
+
 %\usepackage{cleveref}
-		
+
 % Hyperlinks
 \hypersetup{
 	colorlinks=true,
@@ -326,10 +320,10 @@ bibencoding=auto
 \providecommand*{\listingautorefname}{Listing}
 
 % Chapters on same page
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
-\makeatother
+% \usepackage{etoolbox}
+% \makeatletter
+% \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+% \makeatother
 
 % Glossary
 % --------
