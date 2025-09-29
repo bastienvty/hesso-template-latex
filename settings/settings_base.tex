@@ -24,8 +24,8 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}
-\fancyhead[OR]{\bfseries \nouppercase{\rightmark}}
-\fancyhead[EL]{\bfseries \nouppercase{\leftmark}}
+\fancyhead[OR]{\bfseries\nouppercase{\rightmark}}
+\fancyhead[EL]{\bfseries\nouppercase{\leftmark}}
 \fancyfoot[EL,OR]{\thepage}
 
 % Remove the page number (misalignment)
@@ -67,6 +67,12 @@
 	\cleartoodd%
 }
 
+% Fonts
+% -----
+
+% Helvetica (Arial used in the MSE Word template)
+\usepackage{helvet}
+
 % Math
 % ----
 \usepackage{amsmath}  % better math
@@ -87,16 +93,14 @@
 \captionsetup{
 	format=hang,
 	%labelformat=hangout,
-	singlelinecheck=true,
-	font={it}
-}
+	singlelinecheck=true, font={it} }
 
 % Caption with source for figure
 % TODO: improve this to use square brackets like the normal "caption"
 \newcommand*{\captionsource}[3]{%
 	\caption[{#1}]{%
 		#2%
-		
+
 		\scriptsize{\textbf{Source:} #3}%
 	}%
 }
@@ -129,20 +133,19 @@
 
 % Use biber, with numeric style and no sorting (citation order)
 \usepackage[
-backend=biber,
-style=numeric,
-sorting=none,
-bibencoding=auto
+	backend=biber,
+	style=numeric,
+	sorting=none,
+	bibencoding=auto
 ]{biblatex}
 \addbibresource{structure/3-tail/bibliography.bib}
-
 
 % Tables of contents, figures, tables and listings
 % ------------------------------------------------
 \usepackage{tocloft}
 \usepackage{enumerate}
 \newlistof{listing}{lol}{List of Listings}
-\setcounter{tocdepth}{1} % Depth to 'section'
+\setcounter{tocdepth}{2} % Depth to 'subsection'
 \setlength{\cftfigindent}{0pt}  % remove indentation from figures in lof
 \setlength{\cftfignumwidth}{1cm}
 \setlength{\cfttabindent}{0pt}  % remove indentation from tables in lot
@@ -150,26 +153,23 @@ bibencoding=auto
 \setlength{\cftlistingindent}{0pt}
 \setlength{\cftlistingnumwidth}{1cm}
 
-% Mini tables of contents
-% -----------------------
-\usepackage{minitoc}
+% Make TOC, LOF, LOT titles use sans-serif font to match chapter headings
+\renewcommand{\cfttoctitlefont}{\Huge\sffamily\bfseries} % Table of contents
+\renewcommand{\cftloftitlefont}{\Huge\sffamily\bfseries} % List of figures
+\renewcommand{\cftlottitlefont}{\Huge\sffamily\bfseries} % List of tables
+\renewcommand{\cftloltitlefont}{\Huge\sffamily\bfseries} % List of listings
 
-% no "Contents" title
-\mtcsettitle{minitoc}{Contents}
-
-% Layout
-\setlength{\mtcindent}{-0.5em}
-\mtcsetoffset{minitoc}{-1em}
-
-% Spacing above and below table
-\mtcsetfeature{minitoc}{before}{\vspace{0.5cm}}
-\mtcsetfeature{minitoc}{after}{\vspace{-0.25cm}}
-\renewcommand{\mtifont}{\sffamily\bfseries\large}
+\renewcommand{\cftchapfont}{\sffamily\bfseries} % Chapter titles
+\renewcommand{\cftchappagefont}{\sffamily\bfseries} % Chapter page numbers
+\renewcommand{\cftsecfont}{\sffamily} % Section titles
+\renewcommand{\cftsecpagefont}{\sffamily} % Section page numbers
+\renewcommand{\cftsubsecfont}{\sffamily} % Subsection titles
+\renewcommand{\cftsubsecpagefont}{\sffamily} % Subsection page numbers
 
 % Colors & graphics
 % -----------------
 \usepackage[table, svgnames, dvipsnames]{xcolor}      % colors
-\usepackage[pdftex]{graphicx}   % graphics importing
+\usepackage{graphicx}   % graphics importing
 \graphicspath{{structure/figures/}}
 % ref: https://latexcolor.com/
 \definecolor{gray80}{gray}{0.80}
@@ -180,41 +180,40 @@ bibencoding=auto
 % Information and warning boxes
 \usepackage[framemethod=TikZ]{mdframed}
 \newenvironment{info}[1][]{%
-    \vspace{0.2cm}
-   \begin{mdframed}[%
-        backgroundcolor={blue!10}, hidealllines=true,
-        skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
-        splitbottomskip=2pt, splittopskip=10pt,
-        roundcorner=4pt,
-      #1]%
-   \makebox[0pt]{% ignore the withd of !
-      \smash{% ignor the height of !
-         \hspace*{-20pt}% move ! to the left
-         \raisebox{3pt}{% move ! up a little
-             \includegraphics[width=7mm]{img/info.png}
-         }%
-      }%
-   }%
-}{\end{mdframed}}
+	\vspace{0.2cm}
+	\begin{mdframed}[%
+			backgroundcolor={blue!10}, hidealllines=true,
+			skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
+			splitbottomskip=2pt, splittopskip=10pt,
+			roundcorner=4pt,
+			#1]%
+		\makebox[0pt]{% ignore the withd of !
+			\smash{% ignor the height of !
+				\hspace*{-20pt}% move ! to the left
+				\raisebox{3pt}{% move ! up a little
+					\includegraphics[width=7mm]{img/info.png}
+				}%
+			}%
+		}%
+		}{\end{mdframed}}
 
 \newenvironment{warning}[1][]{%
-    \vspace{0.2cm}
-   \begin{mdframed}[%
-        backgroundcolor={yellow!10}, hidealllines=true,
-        skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
-        splitbottomskip=2pt, splittopskip=10pt,
-        roundcorner=4pt,
-      #1]%
-   \makebox[0pt]{% ignore the withd of !
-      \smash{% ignor the height of !
-         \hspace*{-20pt}% move ! to the left
-         \raisebox{2pt}{% move ! up a little
-             \includegraphics[width=7mm]{img/warning.png}
-         }%
-      }%
-   }%
-}{\end{mdframed}}
-
+	\vspace{0.2cm}
+	\begin{mdframed}[%
+			backgroundcolor={yellow!10}, hidealllines=true,
+			skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
+			splitbottomskip=2pt, splittopskip=10pt,
+			roundcorner=4pt,
+			#1]%
+		\makebox[0pt]{% ignore the withd of !
+			\smash{% ignor the height of !
+				\hspace*{-20pt}% move ! to the left
+				\raisebox{2pt}{% move ! up a little
+					\includegraphics[width=7mm]{img/warning.png}
+				}%
+			}%
+		}%
+		}{\end{mdframed}}
 
 % Code and syntax highlighting
 % ----------------------------
@@ -239,8 +238,6 @@ bibencoding=auto
 % Section and chapters headings
 % -----------------------------
 \usepackage[explicit]{titlesec} % titles formatting
-%\usepackage{titletoc} % titles formatting in ToC etc
-%\usepackage{sectsty}  % sectioning commands
 
 % -- Chapters --
 % Remove "Chapter N" and use a sans-serif font
@@ -250,30 +247,34 @@ bibencoding=auto
 \setlength{\footskip}{1.5cm}
 \addtolength{\textheight}{-.5cm}
 
-\titlespacing{\chapter}{-5mm}{-10mm}{3mm}
-\titlespacing{\section}{-5mm}{3mm}{2mm}
-\titlespacing{\subsection}{-5mm}{2mm}{2mm}
-\titlespacing{\subsubsection}{-5mm}{2mm}{0mm}
+\titlespacing{\chapter}{-5mm}{-10mm}{15mm}
+\titlespacing{\section}{-3mm}{4mm}{2mm}
+\titlespacing{\subsection}{-3mm}{2mm}{2mm}
+\titlespacing{\subsubsection}{-2mm}{2mm}{0mm}
 
+\titleformat{\chapter}
+{\Huge\sffamily\bfseries}
+{\llap{\thechapter\hspace{12pt}\textcolor{gray80}{|}}}
+{0mm}
+{\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}}
 
-%\titleformat{\chapter}[block]
-%{\Huge}
-%{\thechapter\hspace{12pt}\textcolor{gray80}{|}\hspace{12pt}}
-%{0pt}
-%{\Huge\bfseries}
+\titleformat{\section}
+{\Large\sffamily\bfseries}
+{\llap{\thesection}}
+{0mm}
+{\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}}
 
-\titleformat{\chapter}{\Huge\bfseries}{\llap{\thechapter\hspace{12pt}\textcolor{gray80}{|}}}{0mm}{%
-	\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}%
-}
-\titleformat{\section}{\Large\bfseries}{\llap{\thesection}}{0mm}{%
-	\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}%
-}
-\titleformat{\subsection}{\large \bfseries}{\llap{\thesubsection}}{0mm}{%
-	\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}%
-}
-\titleformat{\subsubsection}{\bfseries}{\llap{\thesubsubsection}}{0mm}{%
-	\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}%
-}
+\titleformat{\subsection}
+{\large\bfseries}
+{\llap{\thesubsection}}
+{0mm}
+{\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}}
+
+\titleformat{\subsubsection}
+{\bfseries}
+{\llap{\thesubsubsection}}
+{0mm}
+{\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}}
 
 % Misc
 % ------
@@ -319,7 +320,7 @@ bibencoding=auto
 }
 \providecommand*{\listingautorefname}{Listing}
 
-% Chapters on same page
+% Chapters on same page - no longer needed with \input
 % \usepackage{etoolbox}
 % \makeatletter
 % \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}

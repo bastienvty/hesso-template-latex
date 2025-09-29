@@ -1,7 +1,5 @@
-# Waiting for this image to update to TeX Live 2025
-# FROM qmcgaw/latexdevcontainer
-FROM skrallex/latexdevcontainer
-RUN apt-get update && apt-get install -y python3 python3-pip
+FROM ghcr.io/bastienvty/latexdevcontainer:latest
+RUN apt-get update && apt-get install -y --no-install-recommends fontconfig fonts-dejavu
 RUN tlmgr update --self && \
 tlmgr install algorithmicx \
     algorithms \
@@ -39,14 +37,15 @@ tlmgr install algorithmicx \
     glossaries \
     cmbright \
     kpfonts \
-    libertinus libertinus-type1 fontaxes \
+    libertinus libertinus-type1 unicode-math fontaxes \
     sourcecodepro inconsolata \
     tcolorbox \
     babel-french hyphen-french \
     ly1 \
-    glossaries-english glossaries-french
+    glossaries-english glossaries-french \
+    xetex fontspec
+    # collection-fontsrecommended
 RUN texhash && \
     tlmgr update --self --all && \
     mktexlsr && \
     fmtutil-sys --all
-

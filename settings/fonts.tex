@@ -5,22 +5,63 @@
 % https://r2src.github.io/top10fonts/
 
 % Default text fonts
-% ----------
+% ------------------
 % Helvetica (Arial used in the MSE Word template)
 % \usepackage{helvet}
 
-\usepackage{cmbright}       % Sans serif
-\usepackage{lmodern}
+% \usepackage{cmbright}       % Sans serif
+% \usepackage{lmodern}
 
-% \usepackage{libertinus}
+% PdfLaTeX compatible fonts
+% -------------------------
+
+\usepackage{libertinus}
 
 % \usepackage{kpfonts}
 
+% \usepackage{charter}
+% \usepackage[expert]{mathdesign}
+
+% XeLaTeX/LuaLaTeX compatible fonts
+% ---------------------------------
+
+% For loading OpenType fonts; requires XeLaTeX or LuaLaTeX
+% \usepackage{fontspec}
+
+% \setmainfont{LibertinusSerif}[
+%     Path=./fonts/Libertinus-7.051/OTF/,
+%     Extension=.otf,
+%     UprightFont=*-Regular,
+%     BoldFont=*-Bold,
+%     ItalicFont=*-Italic,
+%     BoldItalicFont=*-BoldItalic
+% ]
+
+% \setsansfont{LibertinusSans}[
+%     Path=./fonts/Libertinus-7.051/OTF/,
+%     Extension=.otf,
+%     UprightFont=*-Regular,
+%     BoldFont=*-Bold,
+%     ItalicFont=*-Italic
+% ]
+
+% \setmonofont{LibertinusMono}[
+%     Path=./fonts/Libertinus-7.051/OTF/,
+%     Extension=.otf,
+%     UprightFont=*-Regular
+% ]
+
+% Use Libertinus Math for mathematics
+% \usepackage{unicode-math}
+% \setmathfont{LibertinusMath-Regular.otf}[
+%     Path=./fonts/Libertinus-7.051/OTF/
+% ]
+
 % Monospace fonts, good for code
 % ------------------------------
-\usepackage{sourcecodepro}
-% \usepackage{inconsolata}
+% \usepackage{sourcecodepro}
+\usepackage[scaled=0.95]{inconsolata}
 
 % Default body font family
 % ------------------------
-\renewcommand{\familydefault}{\sfdefault} % sans serif by default
+% \renewcommand{\familydefault}{\sfdefault} % sans serif by default

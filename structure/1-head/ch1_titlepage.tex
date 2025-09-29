@@ -3,58 +3,56 @@
 % ==========================================================================
 
 \begin{titlepage}
-\newgeometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
-\begin{center}
+    \newgeometry{top=2.5cm, bottom=2.5cm, left=3cm, right=3cm}
+    \begin{center}
+        \sffamily%
+        % Logos - Centered at the top
+        \begin{minipage}{0.5\textwidth}
+            \raggedright%
+            \includegraphics[height=0.6cm]{img/mse_logo}  % Adjust height for consistency
+        \end{minipage}%
+        \begin{minipage}{0.5\textwidth}
+            \raggedleft%
+            \includegraphics[height=3cm]{img/HES_SO_Logo_RGB}  % Ensure both logos have the same height
+        \end{minipage}
 
-    % Logos - Centered at the top
-    \begin{minipage}{0.5\textwidth}
-        \raggedright
-        \includegraphics[height=0.6cm]{img/mse_logo}  % Adjust height for consistency
-    \end{minipage}%
-    \begin{minipage}{0.5\textwidth}
-        \raggedleft
-        \includegraphics[height=3cm]{img/HES_SO_Logo_RGB}  % Ensure both logos have the same height
-    \end{minipage}
+        \vspace{1cm}
 
-    \vspace{1cm}
+        % University and program information
+        {\large\textbf{Master of Science HES-SO in Engineering}}\\
+        {\large Orientation: \Orientation}\\[2cm]
 
-    % University and program information
-    {\large \textbf{Master of Science HES-SO in Engineering}}\\
-    {\large Orientation: \Orientation}\\[2cm]
+        % Title
+        \rule{\textwidth}{0.4mm} \\[0.5cm]
+        {\Huge\textbf{\ThesisTitle}}\\[0.3cm]
+        \rule{\textwidth}{0.4mm}\\[1cm]
 
-    % Title
-    \rule{\textwidth}{0.4mm} \\[0.5cm]
-    {\Huge \textbf{\ThesisTitle}}\\[0.3cm]
-    \rule{\textwidth}{0.4mm}\\[1cm]
-    
+        % Author Section
+        {\LARGE\textbf{Author}}\\[0.1cm]
+        {\Large\Author}\\[0.8cm]
+        {\Large\textit{\ThesisSubject}}\\[2cm]
 
-    % Author Section
-    
-    {\LARGE \textbf{Author}}\\[0.1cm]
-    {\Large \Author}\\[0.8cm]
-    {\Large \textit{\ThesisSubject}}\\[2cm]
+        % Supervisor and Expert
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            {\large\textbf{Under the supervision of}}\\
+            {\large\Advisor}\\
+            {\large\SAdvisor}\\
+            {\small\AdvisorResearchUnit}\\
+        \end{minipage}
+        \hfill%
+        \begin{minipage}{0.48\textwidth}
+            \centering
+            {\large\textbf{External Expert}}\\
+            {\large\Expert}\\
+        \end{minipage}
+        \\[1.5cm]
 
-    % Supervisor and Expert
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        {\large \textbf{Under the supervision of}}\\
-        {\large \Advisor}\\
-        {\large \SAdvisor}\\
-        {\small \AdvisorResearchUnit}\\
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.48\textwidth}
-        \centering
-        {\large \textbf{External Expert}}\\
-        {\large \Expert}\\
-    \end{minipage}
-    \\[1.5cm]
+        % Footer Section
+        \vfill%
+        {\small Version \version} \\
+        {\small\Place, HES-SO//\Diploma, \Date}
 
-    % Footer Section
-    \vfill
-    {\small Version \version} \\
-    {\small \Place, HES-SO//\Diploma, \Date}
-
-\end{center}
-\restoregeometry
+    \end{center}
+    \restoregeometry%
 \end{titlepage}

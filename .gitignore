@@ -1,1 +1,3 @@
-_minted
+output/*
+!output/report.pdf
+fonts/*/
