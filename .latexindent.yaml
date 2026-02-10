@@ -1,3 +1,24 @@
 modifyLineBreaks:
   textWrapOptions:
     columns: 120
+
+verbatimEnvironments:
+  tomlcode: 1
+  javacode: 1
+  ccode: 1
+  cppcode: 1
+  scalacode: 1
+  clojurecode: 1
+  pythoncode: 1
+  sqlcode: 1
+  jsoncode: 1
+  yamlcode: 1
+  rustcode: 1
+  gocode: 1
+  textcode: 1
+  shellcode: 1
+  consolecode: 1
+  makecode: 1
+  cmakecode: 1
+  basemakecode: 1
+  gascode: 1

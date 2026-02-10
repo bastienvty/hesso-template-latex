@@ -30,41 +30,41 @@
 
 % Remove the page number (misalignment)
 \fancypagestyle{secondpage}{
-	\fancyhf{}
-	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
 }
 
 % First page of chapters
 \fancypagestyle{plain}{
-	\fancyhf{}
-	\renewcommand{\headrulewidth}{0pt}
-	\renewcommand{\footrulewidth}{0pt}
-	\fancyfoot[EL,OR]{\thepage}
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+    \fancyfoot[EL,OR]{\thepage}
 }
 
 % Imports for external PDFs
 \fancypagestyle{addpagenumbersforpdfimports}{
-	\fancyhead{}
-	\renewcommand{\headrulewidth}{0pt}
-	\fancyfoot{}
-	\fancyfoot[RO,LE]{\thepage}
+    \fancyhead{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot{}
+    \fancyfoot[RO,LE]{\thepage}
 }
 
 % Use empty style for page when clearing double pages
 \def\cleartoodd{%
-	\clearpage%
-	\ifodd\value{page}\else\mbox{}\thispagestyle{empty}\newpage\fi%
+    \clearpage%
+    \ifodd\value{page}\else\mbox{}\thispagestyle{empty}\newpage\fi%
 }
 
 \def\clearchap{%
-	\ifodd\value{page}\else\mbox{}\thispagestyle{empty}\fi%
+    \ifodd\value{page}\else\mbox{}\thispagestyle{empty}\fi%
 }
 
 % \cleardoublepage replaced by \cleartoodd
-\let\origdoublepage\cleardoublepage
+\let\origdoublepage\cleardoublepage%
 \renewcommand{\cleardoublepage}{%
-	\cleartoodd%
+    \cleartoodd%
 }
 
 % Fonts
@@ -72,6 +72,7 @@
 
 % Helvetica (Arial used in the MSE Word template)
 \usepackage{helvet}
+\usepackage{pifont}
 
 % Math
 % ----
@@ -91,18 +92,18 @@
 \DeclareCaptionLabelFormat{title}{#1 #2}
 \DeclareCaptionLabelFormat{hangout}{\llap{#1 #2\hspace{5mm}}}
 \captionsetup{
-	format=hang,
-	%labelformat=hangout,
-	singlelinecheck=true, font={it} }
+    format=hang,
+    %labelformat=hangout,
+    singlelinecheck=true, font={it} }
 
 % Caption with source for figure
 % TODO: improve this to use square brackets like the normal "caption"
 \newcommand*{\captionsource}[3]{%
-	\caption[{#1}]{%
-		#2%
+    \caption[{#1}]{%
+        #2%
 
-		\scriptsize{\textbf{Source:} #3}%
-	}%
+        \scriptsize{\textbf{Source:} #3}%
+    }%
 }
 
 % Tables
@@ -112,6 +113,8 @@
 \usepackage{array}    % manipulate array
 \usepackage{tabularx} % better tables
 \usepackage{makecell} % multilined columns
+\usepackage{threeparttable}
+\usepackage{siunitx}
 
 % Define new tabularx column types:
 %  - R: streteched right aligned
@@ -133,12 +136,12 @@
 
 % Use biber, with numeric style and no sorting (citation order)
 \usepackage[
-	backend=biber,
-	style=numeric,
-	sorting=none,
-	bibencoding=auto
+    backend=biber,
+    style=alphabetic,
+    sorting=anyvt,
+    bibencoding=auto
 ]{biblatex}
-\addbibresource{structure/3-tail/bibliography.bib}
+\addbibresource{structure/3-tail/bibliography/bibliography.bib}
 
 % Tables of contents, figures, tables and listings
 % ------------------------------------------------
@@ -175,45 +178,83 @@
 \definecolor{gray80}{gray}{0.80}
 \definecolor{almond}{rgb}{0.94, 0.87, 0.8}
 \definecolor{languidlavender}{rgb}{0.84, 0.79, 0.87}
+\definecolor{lavenderpink}{rgb}{0.98, 0.68, 0.82}
 \definecolor{platinum}{rgb}{0.9, 0.89, 0.89}
 
 % Information and warning boxes
 \usepackage[framemethod=TikZ]{mdframed}
+\usepackage{fontawesome5}
 \newenvironment{info}[1][]{%
-	\vspace{0.2cm}
-	\begin{mdframed}[%
-			backgroundcolor={blue!10}, hidealllines=true,
-			skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
-			splitbottomskip=2pt, splittopskip=10pt,
-			roundcorner=4pt,
-			#1]%
-		\makebox[0pt]{% ignore the withd of !
-			\smash{% ignor the height of !
-				\hspace*{-20pt}% move ! to the left
-				\raisebox{3pt}{% move ! up a little
-					\includegraphics[width=7mm]{img/info.png}
-				}%
-			}%
-		}%
-		}{\end{mdframed}}
+    \vspace{0.2cm}
+    \begin{mdframed}[%
+            backgroundcolor={blue!10}, hidealllines=true,
+            skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
+            splitbottomskip=2pt, splittopskip=10pt,
+            roundcorner=4pt,
+            #1]%
+        \makebox[0pt]{% ignore the withd of !
+            \smash{% ignor the height of !
+                \hspace*{-20pt}% move ! to the left
+                \raisebox{3pt}{% move ! up a little
+                    {\color{blue!70}\fontsize{16pt}{16pt}\selectfont\faInfoCircle}%
+                }%
+            }%
+        }%
+        }{\end{mdframed}}
 
 \newenvironment{warning}[1][]{%
-	\vspace{0.2cm}
-	\begin{mdframed}[%
-			backgroundcolor={yellow!10}, hidealllines=true,
-			skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
-			splitbottomskip=2pt, splittopskip=10pt,
-			roundcorner=4pt,
-			#1]%
-		\makebox[0pt]{% ignore the withd of !
-			\smash{% ignor the height of !
-				\hspace*{-20pt}% move ! to the left
-				\raisebox{2pt}{% move ! up a little
-					\includegraphics[width=7mm]{img/warning.png}
-				}%
-			}%
-		}%
-		}{\end{mdframed}}
+    \vspace{0.2cm}
+    \begin{mdframed}[%
+            backgroundcolor={yellow!10}, hidealllines=true,
+            skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
+            splitbottomskip=2pt, splittopskip=10pt,
+            roundcorner=4pt,
+            #1]%
+        \makebox[0pt]{% ignore the withd of !
+            \smash{% ignor the height of !
+                \hspace*{-20pt}% move ! to the left
+                \raisebox{3pt}{% move ! up a little
+                    {\color{orange!80}\fontsize{15pt}{15pt}\selectfont\faExclamationTriangle}%
+                }%
+            }%
+        }%
+        }{\end{mdframed}}
+
+\newenvironment{definition}[1][]{%
+    \vspace{0.2cm}
+    \begin{mdframed}[%
+            backgroundcolor={purple!10}, hidealllines=true,
+            skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
+            splitbottomskip=2pt, splittopskip=10pt,
+            roundcorner=4pt,
+            #1]%
+        \makebox[0pt]{%
+            \smash{%
+                \hspace*{-20pt}%
+                \raisebox{3pt}{%
+                    {\color{purple!70}\fontsize{15pt}{15pt}\selectfont\faBookOpen}%
+                }%
+            }%
+        }%
+        }{\end{mdframed}}
+
+\newenvironment{clarification}[1][]{%
+    \vspace{0.2cm}
+    \begin{mdframed}[%
+            backgroundcolor={green!10}, hidealllines=true,
+            skipabove=0.7\baselineskip, skipbelow=0.7\baselineskip,
+            splitbottomskip=2pt, splittopskip=10pt,
+            roundcorner=4pt,
+            #1]%
+        \makebox[0pt]{% ignore the width of !
+            \smash{% ignore the height of !
+                \hspace*{-20pt}% move ! to the left
+                \raisebox{3pt}{% move ! up a little
+                    {\color{green!60!black}\fontsize{15pt}{15pt}\selectfont\faLightbulb}%
+                }%
+            }%
+        }%
+        }{\end{mdframed}}
 
 % Code and syntax highlighting
 % ----------------------------
@@ -230,10 +271,8 @@
 
 \usepackage{paralist}
 \usepackage{enumitem}
-\setlist{itemsep=5pt, parsep=0pt, topsep=10pt} % label=$\bullet$
-\setlist{after=\vspace*{5pt}}
-%\setlist{noitemsep}
-%\setlist{after=\vspace{\baselineskip}}
+\setlist{itemsep=5pt, parsep=2pt, topsep=5pt}
+\newcommand{\csub}{\subitem\hspace*{-10pt}$\circ$\hspace{5pt}}
 
 % Section and chapters headings
 % -----------------------------
@@ -247,31 +286,31 @@
 \setlength{\footskip}{1.5cm}
 \addtolength{\textheight}{-.5cm}
 
-\titlespacing{\chapter}{-5mm}{-10mm}{15mm}
+\titlespacing{\chapter}{-5mm}{-10mm}{12mm}
 \titlespacing{\section}{-3mm}{4mm}{2mm}
 \titlespacing{\subsection}{-3mm}{2mm}{2mm}
-\titlespacing{\subsubsection}{-2mm}{2mm}{0mm}
+\titlespacing{\subsubsection}{-2mm}{2mm}{1mm}
 
 \titleformat{\chapter}
-{\Huge\sffamily\bfseries}
+{\fontsize{28}{34}\selectfont\sffamily\bfseries}
 {\llap{\thechapter\hspace{12pt}\textcolor{gray80}{|}}}
 {0mm}
 {\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}}
 
 \titleformat{\section}
-{\Large\sffamily\bfseries}
+{\fontsize{15}{18}\selectfont\sffamily\bfseries}
 {\llap{\thesection}}
 {0mm}
 {\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}}
 
 \titleformat{\subsection}
-{\large\bfseries}
+{\fontsize{13}{16}\selectfont\sffamily\bfseries}
 {\llap{\thesubsection}}
 {0mm}
 {\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}}
 
 \titleformat{\subsubsection}
-{\bfseries}
+{\fontsize{11.5}{14}\selectfont\sffamily\bfseries}
 {\llap{\thesubsubsection}}
 {0mm}
 {\hfill\begin{minipage}[t]{\dimexpr\textwidth}\raggedright#1\end{minipage}}
@@ -285,7 +324,7 @@
 
 % Allow email typesetting
 \newcommand{\email}[1]{%
-	\href{mailto:#1}{\textit{#1}}%
+    \href{mailto:#1}{\textit{#1}}%
 }
 
 % TODO NOTES
@@ -302,21 +341,46 @@
 
 % pdf metadata
 \usepackage[
-	pdfauthor={\Author},
-	pdftitle={\ThesisTitle},
-	pdfsubject={\ThesisSubject},
-	pdfkeywords={\Keywords}
-	pdfduplex=DuplexFlipLongEdge]{hyperref}
+    pdfauthor={\Author},
+    pdftitle={\ThesisTitle},
+    pdfsubject={\ThesisSubject},
+    pdfkeywords={\Keywords}
+    pdfduplex=DuplexFlipLongEdge]{hyperref}
 
-%\usepackage{cleveref}
+\usepackage{cleveref}
+% \usepackage[nameinlink]{cleveref}
+\crefname{appendix}{Appendix}{Appendices}
+\Crefname{appendix}{Appendix}{Appendices}
+
+\newcounter{experiment}
+\renewcommand{\theexperiment}{\Roman{experiment}}
+\crefname{experiment}{Experiment}{Experiments}
+\Crefname{experiment}{Experiment}{Experiments}
+\newcounter{inexperiment}
+\makeatletter%
+\@addtoreset{inexperiment}{section}
+\makeatother%
+\renewcommand{\thesubsection}{%
+    \ifnum\value{inexperiment}>0 \theexperiment\else\thesection\fi.\arabic{subsection}%
+}
+\newcommand{\experiment}[2]{%
+    \refstepcounter{experiment}%
+    \setcounter{inexperiment}{1}%
+    \setcounter{subsection}{0}%
+    \section*{Experiment \theexperiment: #2}%
+    \markright{Experiment \theexperiment: #2}%
+    \addcontentsline{toc}{section}{Experiment \theexperiment: #2}%
+    \label{#1}%
+}
+\newcommand{\expref}[1]{Exp.~\ref{#1}}
 
 % Hyperlinks
 \hypersetup{
-	colorlinks=true,
-	linkcolor=black,
-	citecolor=black,
-	filecolor=black,
-	urlcolor=[RGB]{142,20,17},
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    filecolor=black,
+    urlcolor=[RGB]{142,20,17},
 }
 \providecommand*{\listingautorefname}{Listing}
 
@@ -330,6 +394,6 @@
 % --------
 \usepackage[toc,section=chapter]{glossaries}
 \input{structure/3-tail/ch3_glossary}
-\makeglossaries
+\makeglossaries%
 
 %TC:endignore

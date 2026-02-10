@@ -1,3 +1,5 @@
 output/*
 !output/report.pdf
 fonts/*/
+.idea
+indent.log
